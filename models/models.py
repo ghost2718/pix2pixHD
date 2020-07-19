@@ -1,4 +1,5 @@
 import torch
+from .pix2pixHD_model import Pix2PixHDModel, InferenceModel
 
 def create_model(opt):
     if opt.model == 'pix2pixHD':
@@ -18,3 +19,13 @@ def create_model(opt):
         model = torch.nn.DataParallel(model, device_ids=opt.gpu_ids)
 
     return model
+def count_parameters(model):
+    return sum(p.numel() for p in model.parameters() if p.requires_grad)
+
+
+if __name__ == "__main__":
+    model = Pix2PixHDModel()
+    print("model parameter numbers are : {}".format(count_parameters(model)))
+    
+    
+   
