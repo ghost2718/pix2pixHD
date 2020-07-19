@@ -1,5 +1,5 @@
 import torch
-from .pix2pixHD_model import Pix2PixHDModel, InferenceModel
+
 
 def create_model(opt):
     if opt.model == 'pix2pixHD':
@@ -24,6 +24,7 @@ def count_parameters(model):
 
 
 if __name__ == "__main__":
+    from .pix2pixHD_model import Pix2PixHDModel, InferenceModel
     model = Pix2PixHDModel()
     print("model parameter numbers are : {}".format(count_parameters(model)))
     
