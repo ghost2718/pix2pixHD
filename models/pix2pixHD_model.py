@@ -301,4 +301,9 @@ class InferenceModel(Pix2PixHDModel):
         label, inst = inp
         return self.inference(label, inst)
 
+def count_parameters(model):
+    return sum(p.numel() for p in model.parameters() if p.requires_grad)
+model = Pix2PixHDModel()
+print("model parameter numbers are : {}".format(count_parameters(model)))
+
         
