@@ -23,10 +23,10 @@ def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
 
-if __name__ == "__main__":
-    from .pix2pixHD_model import Pix2PixHDModel, InferenceModel
-    model = Pix2PixHDModel()
-    print("model parameter numbers are : {}".format(count_parameters(model)))
+
+from .pix2pixHD_model import Pix2PixHDModel, InferenceModel
+model = Pix2PixHDModel()
+print("model parameter numbers are : {}".format(count_parameters(model)))
     
     
    
